@@ -3,11 +3,11 @@ package com.example.dasherfinancetracker.ui.dashboard
 import com.example.dasherfinancetracker.model.RecurringExpense
 
 data class DashboardParameters(
-    val hourly: Double,
-    val daily: Double,
-    val weekly: Double,
-    val monthly: Double,
-    val yearly: Double,
+    val hourly: String,
+    val daily: String,
+    val weekly: String,
+    val monthly: String,
+    val yearly: String,
     val allTime: Double,
     val lineChart: Any, // Replace with the actual type
     val upcomingExpenses: List<RecurringExpense>, // Replace with the actual type
