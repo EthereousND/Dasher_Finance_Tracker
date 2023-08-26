@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 import com.example.dasherfinancetracker.ui.components.*
 
 @Composable
-fun DashboardScreen() {
+fun DashboardScreen(parameters: DashboardParameters) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -16,29 +16,45 @@ fun DashboardScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Total Average Earnings
-        TotalAverageEarnings()
+        TotalAverageEarnings(
+            hourly = parameters.hourly,
+            daily = parameters.daily,
+            weekly = parameters.weekly,
+            monthly = parameters.monthly,
+            yearly = parameters.yearly
+        )
 
         // Total Earnings for the Current Period
-        TotalEarningsCurrentPeriod()
+        TotalEarningsCurrentPeriod(
+            daily = parameters.dailyEarningsCurrentPeriod,
+            weekly = parameters.weeklyEarningsCurrentPeriod,
+            monthly = parameters.monthlyEarningsCurrentPeriod,
+            yearly = parameters.yearlyEarningsCurrentPeriod,
+            allTime = parameters.allTimeEarningsCurrentPeriod,
+            lineChart = parameters.lineChart
+        )
 
         // Upcoming Expenses
-        UpcomingExpenses()
+        UpcomingExpenses(upcomingExpenses = parameters.upcomingExpenses)
 
         // Total Remaining Monthly Expenses and Daily Income Goal
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            RemainingExpensesAndIncomeGoal()
-        }
+        RemainingExpensesAndIncomeGoal(
+            remainingExpenses = parameters.remainingExpenses,
+            dailyIncomeGoal = parameters.dailyIncomeGoal
+        )
 
         // Net Income
-        NetIncome()
+        NetIncome(
+            weeklyIncome = parameters.weeklyIncome,
+            monthlyIncome = parameters.monthlyIncome,
+            yearlyIncome = parameters.yearlyIncome,
+            allTimeIncome = parameters.allTimeIncome
+        )
 
         // Total Deductions
-        TotalDeductions()
+        TotalDeductions(yearlyDeductions = parameters.yearlyDeductions)
 
-        // Navigation Bar (You can replace this with your actual navigation component)
+        // Navigation Bar
         NavigationBar()
     }
 }
