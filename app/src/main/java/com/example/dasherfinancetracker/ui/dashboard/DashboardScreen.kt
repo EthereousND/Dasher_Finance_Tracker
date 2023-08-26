@@ -26,11 +26,11 @@ fun DashboardScreen(parameters: DashboardParameters) {
 
         // Total Earnings for the Current Period
         TotalEarningsCurrentPeriod(
-            daily = parameters.dailyEarningsCurrentPeriod,
-            weekly = parameters.weeklyEarningsCurrentPeriod,
-            monthly = parameters.monthlyEarningsCurrentPeriod,
-            yearly = parameters.yearlyEarningsCurrentPeriod,
-            allTime = parameters.allTimeEarningsCurrentPeriod,
+            daily = parameters.daily.toString(),
+            weekly = parameters.weekly.toString(),
+            monthly = parameters.monthly.toString(),
+            yearly = parameters.yearly.toString(),
+            allTime = parameters.allTime.toString(),
             lineChart = parameters.lineChart
         )
 
